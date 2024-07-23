@@ -1,4 +1,3 @@
-// server.js page
 const express = require("express");
 const app = express();
 const dotenv = require('dotenv');
@@ -6,12 +5,11 @@ dotenv.config(); // Load environment variables from .env file
 
 require("./db/conn");
 
-
 const port = process.env.PORT || 5000;
 
 const cors = require('cors');
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://mernfront-qtxc.onrender.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -19,16 +17,15 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json({ extended: false }));
 
-const newsRouter = require("./routes/news")
-const blogRouter = require("./routes/blog")
-const workRouter = require("./routes/ourWorks")
-const aboutUsRouter = require("./routes/aboutUs")
-const servicesRouter = require("./routes/services")
-const teamRouter = require("./routes/team")
-const testimonialRouter = require("./routes/testimonial")
-const productRouter = require("./routes/product")
-const contactRouter = require("./routes/contact")
-
+const newsRouter = require("./routes/news");
+const blogRouter = require("./routes/blog");
+const workRouter = require("./routes/ourWorks");
+const aboutUsRouter = require("./routes/aboutUs");
+const servicesRouter = require("./routes/services");
+const teamRouter = require("./routes/team");
+const testimonialRouter = require("./routes/testimonial");
+const productRouter = require("./routes/product");
+const contactRouter = require("./routes/contact");
 
 const authRouter = require("./routes/authRoutes");
 
@@ -41,16 +38,11 @@ app.use(teamRouter);
 app.use(testimonialRouter);
 app.use(productRouter);
 app.use(contactRouter);
-
-
 app.use(authRouter);
 
-
-
-
 // Handle preflight requests
-// app.options('*', cors());
+app.options('*', cors(corsOptions));
 
- app.listen(port, () => {
-    console.log(`Connection is setup at port ${port}`);
+app.listen(port, () => {
+  console.log(`Connection is setup at port ${port}`);
 });

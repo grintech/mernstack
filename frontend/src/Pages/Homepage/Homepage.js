@@ -12,6 +12,7 @@ import Readytotalk from '../../Components/Readytotalk'
 
 
 
+const BASE_URL = process.env.REACT_APP_URL;
 
 
 
@@ -24,7 +25,7 @@ const Homepage = () => {
   useEffect(() => {
       const fetchBlogs = async () => {
           try {
-              const response = await axios.get('http://localhost:5000/blog');
+              const response = await axios.get(`${BASE_URL}/blog`);
               setBlogs(response.data);
           } catch (error) {
               setError('Failed to fetch blogs');
