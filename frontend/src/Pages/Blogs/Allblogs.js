@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 const BASE_URL = process.env.REACT_APP_URL;
-
+console.log(BASE_URL);
 
 const Allblogs = () => {
     const [blogs, setBlogs] = useState([]);
@@ -16,7 +16,7 @@ const Allblogs = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get(`${BASE_URL}/blog`);
+                const response = await axios.get(`${BASE_URL}blog`);
                 setBlogs(response.data);
             } catch (error) {
                 setError('Failed to fetch blogs');
