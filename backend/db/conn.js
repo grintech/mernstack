@@ -7,8 +7,9 @@ const mongoose = require("mongoose");
 let URI = process.env.MONGODB_URI ;
 
 mongoose.connect( URI , {
-     useNewUrlParser:true,
-    // useUnifiedTopology:true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 50000, // 50 seconds timeout
 }).then(() => {
     console.log("Connection is successful !!")
 }).catch((e) => {
