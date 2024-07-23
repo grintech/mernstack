@@ -8,6 +8,8 @@ import Section3 from "../../Components/Section3";
 
 import axios from "axios";
 
+const BASE_URL = process.env.REACT_APP_URL;
+
 const Aboutsection = () => {
 
   const [about, setAbout] = useState([]);
@@ -17,7 +19,7 @@ const Aboutsection = () => {
   useEffect(() => {
     const fetchAboutus = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/aboutus');
+            const response = await axios.get(`${BASE_URL}/aboutus`);
             setAbout(response.data);
             // console.log(response.data);
         } catch (error) {

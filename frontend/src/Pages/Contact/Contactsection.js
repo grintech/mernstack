@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+
+const BASE_URL = process.env.REACT_APP_URL;
+
 const Contactsection = () => {
   const initialFormData = {
     firstName: "",
@@ -27,7 +30,7 @@ const Contactsection = () => {
 
     try {
       // Send POST request to the server
-      await axios.post("http://localhost:5000/contact", formData);
+      await axios.post(`${BASE_URL}/contact`, formData);
 
       // If successful, set success state and optionally reset form data
       setSuccess(true);

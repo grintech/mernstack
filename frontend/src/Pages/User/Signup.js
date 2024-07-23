@@ -6,6 +6,8 @@ import "./user.css";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
 
+const BASE_URL = process.env.REACT_APP_URL;
+
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -32,7 +34,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/register', {
+      const response = await axios.post(`${BASE_URL}/register`, {
         username,
         email,
         phone,

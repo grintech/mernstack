@@ -19,6 +19,7 @@ import 'swiper/css/scrollbar';
       return str.replace(/<\/?[^>]+(>|$)/g, "");
   };
 
+  const BASE_URL = process.env.REACT_APP_URL;
 
 const Workslider = () => {
 
@@ -27,7 +28,7 @@ const [error, setError] = useState(null);
 
   useEffect(() => {
     // Fetch work data
-    axios.get('http://localhost:5000/work')
+    axios.get(`${BASE_URL}/work`)
     .then(response => {
       setWorkData(response.data);
     })

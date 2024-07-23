@@ -3,6 +3,9 @@ import axios from 'axios';
 import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
 
+
+const BASE_URL = process.env.REACT_APP_URL;
+
 const Servicessection = () => {
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -11,7 +14,7 @@ const Servicessection = () => {
     useEffect(() => {
         const fetchServices = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/services');
+                const response = await axios.get(`${BASE_URL}/services`);
                 setServices(response.data);
             } catch (error) {
                 setError('Failed to fetch services');

@@ -17,6 +17,7 @@ import 'swiper/css/scrollbar';
       return str.replace(/<\/?[^>]+(>|$)/g, "");
   };
 
+  const BASE_URL = process.env.REACT_APP_URL;   
 
 export default () => {
 
@@ -26,7 +27,7 @@ export default () => {
 
   useEffect(() => {
     // Fetch news data
-    axios.get('http://localhost:5000/testimonial')
+    axios.get(`${BASE_URL}/testimonial`)
     .then(response => {
       setData(response.data);
     })

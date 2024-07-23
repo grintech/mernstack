@@ -22,7 +22,6 @@ app.use(express.json({ extended: false }));
 const newsRouter = require("./routes/news")
 const blogRouter = require("./routes/blog")
 const workRouter = require("./routes/ourWorks")
-// const registerRouter = require("./routes/register")
 const aboutUsRouter = require("./routes/aboutUs")
 const servicesRouter = require("./routes/services")
 const teamRouter = require("./routes/team")
@@ -36,7 +35,6 @@ const authRouter = require("./routes/authRoutes");
 app.use(newsRouter);
 app.use(blogRouter);
 app.use(workRouter);
-// app.use(registerRouter);
 app.use(aboutUsRouter);
 app.use(servicesRouter);
 app.use(teamRouter);

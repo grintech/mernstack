@@ -5,6 +5,7 @@ import Navbar from '../../Components/Navbar'
 import { Link } from 'react-router-dom';
 import Footer from '../../Components/Footer';
 
+const BASE_URL = process.env.REACT_APP_URL;
 
 const Shopsection = () => {
 
@@ -15,7 +16,7 @@ const Shopsection = () => {
   useEffect(() => {
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/products');
+            const response = await axios.get(`${BASE_URL}/products`);
             setProducts(response.data);
             // console.log(response.data);
         } catch (error) {
