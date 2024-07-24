@@ -10,8 +10,9 @@ const port = process.env.PORT || 5000;
 const cors = require('cors');
 const corsOptions = {
   origin: 'https://mernfront-qtxc.onrender.com',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
