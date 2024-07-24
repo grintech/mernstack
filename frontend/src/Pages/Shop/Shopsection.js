@@ -88,7 +88,7 @@ const Shopsection = () => {
             <div className='col-lg-3 col-md-6 col-sm-6' key={index}>
             <div className='single-product'>
               <div className='product-img'>
-                <img src={`/productimg/${product.image}`} className='img1' alt='wood-pencil' />
+                <img src={`/productimg/${product.image}`} className='img1' alt='' />
                 <ul className='d-flex align-items-center'>
 
                   <li>
@@ -114,7 +114,7 @@ const Shopsection = () => {
 
               <div className='product-content py-4'>
 
-                <Link to="/wood-pencil"><h3>{product.name}</h3></Link>
+                <Link to=""><h3>{product.name}</h3></Link>
                 <span><b> Rs</b> {product.discountPrice}</span>
                 <ul className='d-flex justify-content-center mt-2 p-0'>
                   <li><i className="fa-regular fa-star"></i></li>
@@ -124,7 +124,7 @@ const Shopsection = () => {
                   <li><i className="fa-regular fa-star"></i></li>
                 </ul>
 
-                <Link to="/shop"><button className='add-to-cart'>ADD TO CART</button></Link>
+                <Link to=""><button className='add-to-cart'>ADD TO CART</button></Link>
 
               </div>
             </div>
