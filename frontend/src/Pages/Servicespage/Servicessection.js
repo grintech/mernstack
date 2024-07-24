@@ -6,6 +6,13 @@ import Footer from '../../Components/Footer';
 
 const BASE_URL = process.env.REACT_APP_URL;
 
+  // Utility function to strip HTML tags from a string
+  const stripHtmlTags = (str) => {
+    if (!str) return "";
+    return str.replace(/<\/?[^>]+(>|$)/g, "");
+ };
+
+
 const Servicessection = () => {
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -49,7 +56,8 @@ const Servicessection = () => {
                                     <div className='box'>
                                         <img src={`/serviceimg/${service.image}`} className='img1' alt={service.title} />
                                         <h3><a href=''>{service.title}</a></h3>
-                                        <p dangerouslySetInnerHTML={{ __html : service.description}}/>
+                                        {/* <p dangerouslySetInnerHTML={{ __html : service.description}}/> */}
+                                        <p>{stripHtmlTags(service.description)}</p>
                                     </div>
                                 </div>
                             ))}
